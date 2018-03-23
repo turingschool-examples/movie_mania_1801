@@ -1,4 +1,4 @@
 class Movie < ApplicationRecord
-
-
-end 
+  has_many :actor_movies
+  has_many :actors, through: :actor_movies
+end

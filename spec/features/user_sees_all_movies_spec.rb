@@ -3,8 +3,9 @@ require 'rails_helper'
 describe "user sees all movies" do
   context "they visit the movies index" do
     it "displays all movies their information" do
-      movie_1 = Movie.create!(title: "Mary Poppins", description: "Practically perfect in every way")
-      movie_2 = Movie.create!(title: "Goonies", description: "absolutely perfect")
+      director = Director.create!(name: 'Wakowski Sisters')
+      movie_1 = Movie.create!(director_id: director.id, title: "Mary Poppins", description: "Practically perfect in every way")
+      movie_2 = Movie.create!(director_id: director.id, title: "Goonies", description: "Goonies never say die")
 
       visit "/movies"
 
