@@ -1,4 +1,9 @@
-<h1>All Movies</h1>
+<h1>
+  All Movies
+  <% if @director %>
+  by <%= @director.name %>
+  <% end %>
+</h1>
 
 <% @movies.each do |movie| %>
   <%= movie.title %>

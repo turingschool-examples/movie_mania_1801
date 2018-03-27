@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User' do
-  context 'creates a new actor in a form' do
+  context 'creates a new director in a form' do
     it 'should save data correctly' do
       visit new_director_path
       director_name = 'Patty Jenkins'
