@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   # get '/movies', to: 'movies#index'
 
-  resources :movies
-  resources :directors
+  resources :directors, shallow: true do
+    resources :movies
+  end
+  resources :movies, only: [:index]
   resources :actors
 end
