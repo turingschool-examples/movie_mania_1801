@@ -15,7 +15,7 @@ describe 'User' do
       expect(page).to have_content(title)
       expect(page).to have_content(description)
       expect(page).to have_content(director.name)
-      expect(current_path).to eq("/movies/#{Movie.last.id}")
+      expect(current_path).to eq("/movies/#{Movie.last.slug}")
     end
   end
 end

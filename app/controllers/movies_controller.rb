@@ -15,13 +15,13 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find_by(slug: params[:slug])
   end
 
   def create
     director = Director.find(params[:director_id])
     movie = director.movies.create(movie_params)
-    redirect_to "/movies/#{movie.id}"
+    redirect_to "/movies/#{movie.slug}"
   end
 
   private
