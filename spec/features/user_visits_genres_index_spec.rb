@@ -13,7 +13,6 @@ describe 'unregistered user' do
     end
     it 'does not see the form to create genres' do
 
-
       visit genres_path
 
       expect(page).to_not have_content('Create a new genre:')
