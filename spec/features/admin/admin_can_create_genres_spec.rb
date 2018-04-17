@@ -8,14 +8,11 @@
 require 'rails_helper'
 
 describe 'As an admin' do
+  
   before(:each) do
-    DatabaseCleaner.clean
     @admin = create(:admin)
   end
 
-  after(:each) do
-    DatabaseCleaner.clean
-  end
   context 'when I visit the genre index' do
     scenario 'I can add a new genre' do
       genre_name = 'A new, better genre'
