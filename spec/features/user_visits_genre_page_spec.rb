@@ -38,8 +38,10 @@ describe 'Unregistered user' do
       click_on genre.name
 
       expect(current_path).to eq(genre_path(genre))
+      expect(page).to have_content(genre.name)
       expect(page).to have_content(movie_1.title)
       expect(page).to have_content(movie_2.title)
+      expect(page).to have_content(genre.average_rating)
     end
   end
 end

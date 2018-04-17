@@ -29,10 +29,3 @@ describe 'Unregistered user' do
     end
   end
 end
-
-
-# As an unregistered user,
-# When I visit the genre index,
-# I cannot see the form to create new genres,
-# I see all genres (for testing purposes, I should see at least 2)
-# and each genre's name should be a link to that genre's specific page
