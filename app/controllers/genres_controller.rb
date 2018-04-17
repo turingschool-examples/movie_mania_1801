@@ -1,5 +1,4 @@
 class GenresController < ApplicationController
-  before_action :require_admin, only: %i[create]
 
   def index
     @genres = Genre.all
