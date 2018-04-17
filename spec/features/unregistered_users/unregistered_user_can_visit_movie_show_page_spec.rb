@@ -5,8 +5,9 @@ describe "As an unregistered user" do
     describe "I click on 'Guardians of the Galaxy'" do
       describe "I can see the show page for that movie" do
         scenario "I also see 'Action', 'Adventure', 'Sci-Fi' under 'Genres for this Movie:' heading along with rating for the movie" do
-          movie_1 = Movie.create(title: 'Guardians of the Galaxy', description: 'Stupid Movie', rating: 2)
-          movie_2 = Movie.create(title: 'Hannibal', description: 'Awesome Movie', rating: 5)
+          director = Director.create!(name: "Someone!")
+          movie_1 = director.movies.create!(title: 'Guardians of the Galaxy', description: 'Stupid Movie', rating: 2)
+          movie_2 = director.movies.create!(title: 'Hannibal', description: 'Awesome Movie', rating: 5)
           genre_1 = movie_1.genres.create!(name: 'Action')
           genre_2 = movie_1.genres.create!(name: 'Adventure')
           genre_3 = movie_1.genres.create!(name: 'Sci-Fi')
