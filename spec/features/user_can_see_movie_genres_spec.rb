@@ -4,7 +4,7 @@ feature 'Visitor' do
   context 'navigates to movie show page' do
     scenario 'they see the information for that movie' do
       director = Director.create(name: 'The Coen Brothers')
-      movie = director.movies.create(title: 'Guardians of the Galaxy', description: 'Ragtag space rebels')
+      movie = director.movies.create(title: 'Guardians of the Galaxy', description: 'Ragtag space rebels', rating: 4)
 
       visit movies_path
 
@@ -13,6 +13,7 @@ feature 'Visitor' do
       expect(current_path).to eq(movie_path(movie))
       expect(page).to have_content(movie.title)
       expect(page).to have_content(movie.description)
+      expect(page).to have_content(movie.rating)
     end
 
     scenario 'they see the genres for that movie' do
@@ -34,9 +35,6 @@ feature 'Visitor' do
         expect(page).to have_content(genre_two.name)
         expect(page).to have_content(genre_three.name)
       end
-    end
-
-    scenario 'they see the rating for that movie' do
     end
   end
 end
