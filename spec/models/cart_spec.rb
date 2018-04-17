@@ -10,7 +10,7 @@ describe Cart do
 
     it "add_movie" do
       director = Director.create!(name: "Someone!")
-      movie = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail")
+      movie = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail", rating: 5)
       cart = Cart.new(nil)
 
       expect(cart.contents[movie.id.to_s]).to eq(0)
