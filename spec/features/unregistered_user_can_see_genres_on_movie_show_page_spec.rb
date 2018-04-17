@@ -13,7 +13,7 @@ describe "unregistered user sees genres associated with movie" do
 
       click_on movie.title
 
-      expect(page).to have_content(movie.name)
+      expect(page).to have_content(movie.title)
       expect(page).to have_content("Genres for this Movie:")
       expect(page).to have_content(genre1.name)
       expect(page).to have_content(genre2.name)
