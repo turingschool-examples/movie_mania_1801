@@ -45,6 +45,7 @@ describe 'Unregistered user' do
         click_on movie.title
 
         expect(page).to have_content(movie.title)
+        expect(page).to have_content(movie.rating)
         expect(page).to have_content("Genres for this Movie:")
         expect(page).to have_content(genre_1.name)
         expect(page).to have_content(genre_2.name)
@@ -53,13 +54,3 @@ describe 'Unregistered user' do
     end
   end
 end
-
-
-
-
-# As an unregistered user,
-# When I visit the movie index,
-# And I click on "Guardians of the Galaxy"
-# I see a page with "Guardians of the Galaxy",
-# I also see "Action", "Adventure", "Sci-Fi" under a "Genres for this Movie:" heading
-# I also see the rating for this movie (rating 1-5 should be an attribute of a movie).
