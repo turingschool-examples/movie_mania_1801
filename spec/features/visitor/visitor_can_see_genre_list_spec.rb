@@ -9,12 +9,7 @@ require 'rails_helper'
 describe 'As a visitor' do
   context 'when I visit the genres index' do
     before(:all) do
-      DatabaseCleaner.clean
       @genres = create_list(:genre, 3)
-    end
-
-    after(:all) do
-      DatabaseCleaner.clean
     end
 
     scenario 'I cannot see the create form' do

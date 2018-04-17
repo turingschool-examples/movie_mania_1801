@@ -11,16 +11,11 @@ describe 'As a visitor' do
   context 'when I visit the movie index' do
     context 'and click on a specific movie' do
       before(:all) do
-        DatabaseCleaner.clean
         @movie = create(:movie)
         @genres = create_list(:genre, 3)
         @genres.each do |genre|
-          MovieGenre.create!(movie: @movie, genre: genre)
+          genre.movies.push(@movie)
         end
-      end
-
-      after(:all) do
-        DatabaseCleaner.clean
       end
 
       scenario 'I should see this movies name' do
