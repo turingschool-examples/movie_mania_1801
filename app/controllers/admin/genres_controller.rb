@@ -1,5 +1,5 @@
 # Admin genre controller
-class Admin::GenresController < ApplicationController
+class Admin::GenresController < Admin::BaseController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
