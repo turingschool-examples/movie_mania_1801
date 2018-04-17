@@ -6,7 +6,7 @@ describe "admin" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit admin_genres_path
+    visit genres_path
 
     fill_in "Name", with: "SciFi"
     click_on "Create Genre"
