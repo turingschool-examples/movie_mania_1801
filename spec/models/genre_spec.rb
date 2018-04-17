@@ -19,7 +19,7 @@ describe Genre, type: :model do
   end
 
   describe 'methods' do
-    it "can do average rating"
+    it "can do average rating" do
       genre = Genre.create!(name: 'romance')
       director = Director.create!(name: "Someone")
       movie = director.movies.create!(title: "GoG", description: "Marvel Space", rating: 5)
