@@ -7,6 +7,7 @@ class Admin::GenresController < Admin::BaseController
       redirect_to genres_path
     else
       flash[:error] = 'There was an error saving that genre.'
+      @genres = Genre.all
       render :'genres/index'
     end
   end
