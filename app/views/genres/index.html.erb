@@ -1,0 +1,13 @@
+<h1>Genres</h1>
+
+<ul class="genres">
+  <% @genres.each do |genre| %>
+    <li>
+      <p><%= genre.name %></p>
+    </li>
+  <% end %>
+</ul>
+
+<% if current_admin? %>
+
+<% end %>

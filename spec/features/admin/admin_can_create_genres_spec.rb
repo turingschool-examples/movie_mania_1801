@@ -12,11 +12,18 @@ describe 'As an admin' do
     scenario 'I can see a list of all genres' do
       genre_name = 'A new, better genre'
 
-      visit genre_path
-
+      visit genres_path
+      expect(page).to_not have_content(genre_name)
+      
       within('form#genres') do
         fill_in 'genre[name]', with: genre_name
       end
+
+      click_on 'Create Genre'
+
+      expect(current_path).to eq(genres_path)
+
+      expect(page).to have_content(genre_name)
     end
   end
 end
