@@ -19,7 +19,10 @@ describe "visitor" do
     genre2 = Genre.create!(name: "Thriller")
     genre3 = Genre.create!(name: "Suspense")
     movie1 = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect in every way", rating: 5)
-
+    MovieGenre.create!(movie_id: movie1.id, genre_id: genre1.id)
+    MovieGenre.create!(movie_id: movie1.id, genre_id: genre2.id)
+    MovieGenre.create!(movie_id: movie1.id, genre_id: genre3.id)
+    
     visit movies_path
     click_on movie1.title
 
