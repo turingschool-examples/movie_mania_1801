@@ -11,6 +11,8 @@ describe 'Admin' do
       fill_in "genre[name]", with: 'Horror'
       click_on 'submit'
 
+      save_and_open_page
+      binding.pry
       expect(page).to have_content('Horror')
     end
   end

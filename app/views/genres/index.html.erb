@@ -3,3 +3,7 @@
   <%= t.text_field :name %>
   <%= t.submit "submit" %>
 <% end %>
+
+<% @genres.each do |genre| %>
+  <%= genre.name %>
+<% end %>
