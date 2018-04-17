@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:index]
   resources :actors
 
-  resources :genres, only: [:index]
+  resources :genres, only: [:index, :show]
   post '/genres', to: 'admin/genres#create'
 
   resources :users, only: [:new, :create, :show]

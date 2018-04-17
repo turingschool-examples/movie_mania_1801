@@ -24,5 +24,23 @@ feature 'Visitor' do
       expect(page).to have_content('Adventure')
       expect(page).to have_content('Sci-Fi')
     end
+
+    scenario 'can click a genre name to link to the show page' do
+      genre_one = Genre.create(name: 'Action')
+      genre_two = Genre.create(name: 'Adventure')
+      Genre.create(name: 'Sci-Fi')
+
+      visit genres_path
+
+      click_on 'Action'
+
+      expect(current_path).to eq(genre_path(genre_one))
+
+      visit genres_path
+
+      click_on 'Adventure'
+
+      expect(current_path).to eq(genre_path(genre_two))
+    end
   end
 end
