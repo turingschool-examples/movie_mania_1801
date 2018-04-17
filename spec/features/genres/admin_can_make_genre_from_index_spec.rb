@@ -4,6 +4,7 @@ context 'An Admin' do
   context 'visits the index' do
     scenario 'they can make a new genre' do
       admin = User.create!(username: 'user', password: 'pass', role: 'admin')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit genres_path
 

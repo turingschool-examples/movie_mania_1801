@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories, only: [:index]
   end
-  
-  resources :genres, only: %i[index create]
+
+  resources :genres, only: %i[index show create]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
