@@ -10,6 +10,7 @@ describe 'User' do
 
       fill_in :movie_title, with: title
       fill_in :movie_description, with: description
+      fill_in :movie_rating, with: 4
       click_on 'Create Movie'
 
       expect(page).to have_content(title)

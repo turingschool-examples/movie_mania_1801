@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   resources :directors, shallow: true do
     resources :movies
   end
+
   resources :movies, only: [:index]
   resources :actors
+
+  resources :genres, only: [:index, :show]
+  post '/genres', to: 'admin/genres#create'
 
   resources :users, only: [:new, :create, :show]
 
