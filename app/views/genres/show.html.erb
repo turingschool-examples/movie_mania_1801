@@ -1,5 +1,5 @@
 <%= @genre.name %>
-
+<p>Average rating of movies in this genre: <%= @genre.average_rating %></p>
 <% @genre.movies.each do |m| %>
   <%= m.title %>
 <% end %>
