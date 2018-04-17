@@ -3,7 +3,7 @@
 <ul class="genres">
   <% @genres.find_each do |genre| %>
     <li>
-      <p><%= genre.name %></p>
+      <p><%= link_to genre.name, genre_path(genre) %></p>
     </li>
   <% end %>
 </ul>
