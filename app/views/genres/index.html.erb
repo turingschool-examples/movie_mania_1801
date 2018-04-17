@@ -1,0 +1,9 @@
+<% if current_admin? %>
+  <%= render partial: 'form' %>
+<% end %>
+
+<ul>
+  <% @genres.each do |genre| %>
+    <li><%= genre.name %></li>
+  <% end %>
+</ul>
