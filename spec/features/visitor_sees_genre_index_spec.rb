@@ -43,7 +43,9 @@ describe "visitor" do
     average = (movie1.rating + movie2.rating) / 2
 
     visit genres_path
+    click_on genre1.name
 
+    expect(current_path).to eq(genre_path(genre1))
     expect(page).to have_content(genre1.name)
     expect(page).to have_content(movie1.title)
     expect(page).to have_content(movie2.title)
