@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :movies, only: [:index]
   resources :actors
-  resources :genres, only: [:index]
+  resources :genres, only: [:index, :create]
   resources :users, only: [:new, :create, :show]
 
   namespace :admin do
