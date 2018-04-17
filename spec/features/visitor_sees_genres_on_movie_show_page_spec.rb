@@ -10,7 +10,6 @@ describe 'As a visitor' do
       genre_3 = movie.genres.create!(name: 'Sci-Fi')
 
       visit movies_path
-      save_and_open_page
       click_on movie.title
 
       expect(current_path).to eq(movie_path(movie))

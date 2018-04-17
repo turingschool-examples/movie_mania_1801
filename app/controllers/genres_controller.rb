@@ -11,6 +11,7 @@ class GenresController < ApplicationController
     if genre.save
       redirect_to genres_path
     else
+      flash[:error] = 'Unable to create this genre.'
       render :index
     end
   end
