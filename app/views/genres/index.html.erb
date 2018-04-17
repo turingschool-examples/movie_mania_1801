@@ -1,3 +1,5 @@
 <h2>List of Genres</h2>
-
-<p><%= link_to genre, new_admin_genre_path %>
+<h2>Admin Genres</h2>
+<% @genres.each do |genre| %>
+  <p><%= link_to genre.name, genre_path(genre) %></p>
+<% end %>

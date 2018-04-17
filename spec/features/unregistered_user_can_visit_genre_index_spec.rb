@@ -7,12 +7,18 @@ describe "As an unregistered user" do
         scenario "Each genres name should be a link to that genre\'s specific show page" do
           genre_1 = Genre.create!(name: 'Horror')
           genre_2 = Genre.create!(name: 'Action')
+          genre_3 = Genre.create!(name: 'Romance')
 
           visit genres_path
 
           expect(page).to_not have_content('Add a Genre')
           expect(page).to have_content(genre_1.name)
           expect(page).to have_content(genre_2.name)
+          expect(page).to have_content(genre_3.name)
+          expect(page).to have_link(genre_1.name)
+          expect(page).to have_link(genre_2.name)
+          expect(page).to have_link(genre_3.name)
+          expect(page).to_not have_content('Create a Genre')
         end
       end
     end
