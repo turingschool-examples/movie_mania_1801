@@ -9,7 +9,7 @@ describe "As an admin" do
       click_on 'Create Genre'
 
       expect(current_path).to eq(genres_path)
-      expect(page).to have_content(Genre.last.name)
+      expect(page).to have_content(Genre.all.last.name)
     end
   end
 end
