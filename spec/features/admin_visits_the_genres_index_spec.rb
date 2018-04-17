@@ -19,6 +19,23 @@ describe 'Admin' do
       expect(current_path).to eq(genres_path)
       expect(page).to have_content(genre_name)
     end
+
+    it 'and submits an incomplete form and is shown an error flash message' do
+      admin = User.create(username: "admin", password: "password", role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit genres_path
+
+      genre_name = "Comedy"
+
+      expect(page).to have_content("Create a New Genre")
+
+      click_on 'Create Genre'
+
+      expect(current_path).to eq(genres_path)
+      expect(page).to have_content("Failed to create a new genre")
+    end
   end
 end
 
