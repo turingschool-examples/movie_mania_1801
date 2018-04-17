@@ -14,7 +14,7 @@ class GenresController < ApplicationController
       redirect_to genres_path
     else
       redirect_to genres_path
-    end
+      end
   end
 
   private
