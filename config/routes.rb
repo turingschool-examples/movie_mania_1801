@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   end
   resources :movies, only: [:index, :show]
   resources :actors
-  resources :genres, only: [:index, :create, :show]
+  resources :genres, only: [:index, :show]
   resources :users, only: [:new, :create, :show]
 
   namespace :admin do
     resources :categories, only: [:index]
+    resources :genres, only: [:create]
   end
 
   get '/login', to: 'sessions#new'
