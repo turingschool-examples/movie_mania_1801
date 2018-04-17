@@ -6,6 +6,7 @@ describe 'As an unregistered user' do
       it 'shows me genre info and rating' do
         director = Director.create!(name: 'Wakowski Sisters')
         movie = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect in every way")
+  
         movie.genres.create!(name: 'Action')
         movie.genres.create!(name: 'Adventure')
         movie.genres.create!(name: 'Sci-Fi')
