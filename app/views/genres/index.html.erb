@@ -4,6 +4,6 @@
   <% end %>
 <h2>Genres</h2>
   <% @genres.each do |g| %>
-    <%= g.name %>
+    <a href="/genres/<%= g.id %>"><%= g.name %></a>
   <% end %>
 </main>
