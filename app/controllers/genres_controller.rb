@@ -4,6 +4,7 @@ class GenresController < ApplicationController
   end
 
   def create
+    redirect_to genres_path unless current_admin?
     genre = Genre.new(genre_params)
     if genre.save
       flash[:success] = "Genre #{genre.name} created!"

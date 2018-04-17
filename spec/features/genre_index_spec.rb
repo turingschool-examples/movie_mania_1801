@@ -21,11 +21,19 @@ end
 describe "unregistered user" do
   describe "When I visit the genre index" do
     scenario "I see list of genres but no form" do
-      genre = Genre.create!(name: 'romance')
+      genre0 = Genre.create!(name: 'romance')
+      genre1 = Genre.create!(name: 'comedy')
+      genre2 = Genre.create!(name: 'scifi')
       visit genre_path
 
       expect(page).to_not have_content("Create Genre")
-      expect(page).to have_content(genre.name)
+      expect(page).to have_content(genre0.name)
+      expect(page).to have_content(genre1.name)
+      expect(page).to have_content(genre2.name)
+
+      click_on 'romance'
+
+      expect(current_path).to eq(genre_path(genre0))
     end
   end
 end
