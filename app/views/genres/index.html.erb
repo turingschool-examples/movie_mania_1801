@@ -1,8 +1,10 @@
-<%= form_for @genre do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<% if current_admin? %>
+  <%= form_for @genre do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.submit %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
 
 <% @genres.each do |genre| %>
