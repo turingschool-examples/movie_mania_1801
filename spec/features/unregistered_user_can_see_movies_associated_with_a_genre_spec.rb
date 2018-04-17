@@ -10,7 +10,7 @@ describe "unregistered user sees movies associated with genre" do
 
       visit genres_path
 
-      click_on genre.title
+      click_on genre.name
 
       expect(page).to have_content(movie1.title)
       expect(page).to have_content(movie2.title)
