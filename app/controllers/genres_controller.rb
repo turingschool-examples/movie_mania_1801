@@ -1,7 +1,12 @@
 class GenresController < ApplicationController
+  before_action :set_genre, only: %i[showa]
+
   def index
     @genre  = Genre.new
     @genres = Genre.all
+  end
+
+  def show
   end
 
   def create
@@ -11,6 +16,10 @@ class GenresController < ApplicationController
   end
 
   private
+
+    def set_genre
+      @genre = Genre.find(params[:id])
+    end
 
     def genre_params
       params.require(:genre).permit(:name)

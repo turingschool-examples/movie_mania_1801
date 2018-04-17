@@ -12,10 +12,6 @@ describe 'Visitor' do
       expect(page).to have_link(genre_1.name)
       expect(page).to have_link(genre_2.name)
       expect(page).to have_link(genre_3.name)
-
-      click_on genre_1.name
-
-      expect(current_path).to eq(genre_path(genre_1))
     end
   end
 end
