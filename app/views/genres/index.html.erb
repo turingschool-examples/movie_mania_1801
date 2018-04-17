@@ -1,0 +1,8 @@
+<% if current_admin? %>
+  <h1><%= link_to 'Create New Genres Here', new_admin_genre_path %></h1>
+<% end %>
+
+<h1>All Genres</h1>
+<% @genres.each do |genre| %>
+  <p><%= link_to genre.name, genre_path(genre) %></p>
+<% end %>
