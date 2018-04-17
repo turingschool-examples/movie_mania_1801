@@ -7,7 +7,7 @@
 
 <% @movies.each do |movie| %>
   <div class="movie-<%= movie.id %>">
-    <%= movie.title %>
+    <%= link_to movie.title, movie_path(movie) %>
     <%= movie.description %>
     <%= button_to "Add Movie", cart_path(movie_id: movie.id)%>
   </div>
