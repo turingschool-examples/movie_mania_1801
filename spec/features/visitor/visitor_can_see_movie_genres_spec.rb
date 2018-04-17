@@ -15,7 +15,7 @@ describe 'As a visitor' do
         @movie = create(:movie)
         @genres = create_list(:genre, 3)
         @genres.each do |genre|
-          MovieGenre.create!(movie: @movie, genre: genre)
+          genre.movies.push(@movie)
         end
       end
 

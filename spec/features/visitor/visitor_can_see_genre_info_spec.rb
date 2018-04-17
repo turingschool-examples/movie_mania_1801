@@ -15,7 +15,6 @@ describe 'As a visitor' do
         @genre = create(:genre)
         @movies = create_list(:movie, 3, rating: rand(1..5))
         @movies.each do |movie|
-          #MovieGenre.create!(movie: movie, genre: @genre)
           movie.genres.push(@genre)
         end
       end
