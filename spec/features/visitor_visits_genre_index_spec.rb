@@ -21,12 +21,9 @@ describe 'Visitor' do
       movie_genre_1 = MovieGenre.create!(movie_id: movie_1.id, genre_id: genre.id)
       movie_genre_2 = MovieGenre.create!(movie_id: movie_2.id, genre_id: genre.id)
 
-
       visit genres_path
       click_on genre.name
 
-      save_and_open_page
-      binding.pry
       expect(page).to have_content(genre.name)
       expect(page).to have_content(movie_1.title)
       expect(page).to have_content(movie_2.title)
