@@ -8,7 +8,7 @@ describe 'As a visitor' do
 
       visit genres_path
 
-      expect(page).to_not have_button('Submit')
+      expect(page).to_not have_xpath('//form')
       expect(page).to have_content(genre_1.name)
       expect(page).to have_content(genre_2.name)
 
