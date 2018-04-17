@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :set_genre, only: %i[showa]
+  before_action :set_genre, only: %i[show]
 
   def index
     @genre  = Genre.new
