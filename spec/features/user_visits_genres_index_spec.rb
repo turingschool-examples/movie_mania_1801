@@ -22,5 +22,20 @@ describe 'unregistered user' do
 
       expect(page).to_not have_content('Create a new genre:')
     end
+    it 'sees that genre names are links' do
+      user = User.create(username: 'name', password: 'password', role: 'default')
+      genre1 = Genre.create(name: 'bad stuff')
+      Genre.create(name: 'good stuff')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit genres_path
+
+      expect(page).to have_link('bad stuff')
+      expect(page).to have_link('good stuff')
+
+      click_on 'bad stuff'
+
+      expect(current_path).to eq(genre_path(genre1))
+    end
   end
 end
