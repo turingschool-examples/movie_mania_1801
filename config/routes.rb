@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :categories, only: [:index]
   end
 
+  resources :genres, only: [:create, :index, :show]
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
