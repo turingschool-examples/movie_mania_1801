@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
+  gem 'orderly'
   gem 'shoulda-matchers', '~> 3.1'
 end
 
