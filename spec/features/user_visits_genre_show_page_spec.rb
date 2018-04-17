@@ -16,6 +16,7 @@ describe 'As an unregistered user' do
 
         expect(page).to have_content(movie.title)
         expect(page).to have_content(movie2.title)
+        expect(page).to have_content(genre.average_rating)
       end
     end
   end
