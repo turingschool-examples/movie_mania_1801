@@ -9,7 +9,7 @@ describe 'Admin' do
       visit genres_path
 
       fill_in "genre[name]", with: 'Horror'
-      click_on 'Submit'
+      click_on 'submit'
 
       expect(page).to have_content('Horror')
     end
