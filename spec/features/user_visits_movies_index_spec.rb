@@ -26,13 +26,13 @@ describe 'Unregistered user' do
         expect(current_path).to eq(movie_path(movie))
       end
 
-      it 'and clicks on a movie and sees movie name and all associated genres' do
+      it 'and clicks on a movie and sees movie name and all associated genres and its rating' do
 
         genre_1 = Genre.create(name: "Sci-Fi")
         genre_2 = Genre.create(name: "Action")
         genre_3 = Genre.create(name: "Adventure")
         director = Director.create!(name: "director")
-        movie = director.movies.create!(title: 'Guardians of the Galaxy', description: "stuff happens in space")
+        movie = director.movies.create!(title: 'Guardians of the Galaxy', description: "stuff happens in space", rating: 3)
 
         movie_genre_1 = MovieGenre.create(movie_id: movie.id, genre_id: genre_1.id)
         movie_genre_2 = MovieGenre.create(movie_id: movie.id, genre_id: genre_2.id)
@@ -45,6 +45,7 @@ describe 'Unregistered user' do
         click_on movie.title
 
         expect(page).to have_content(movie.title)
+        expect(page).to have_content("Genres for this Movie:")
         expect(page).to have_content(genre_1.name)
         expect(page).to have_content(genre_2.name)
         expect(page).to have_content(genre_3.name)
