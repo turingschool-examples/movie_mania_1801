@@ -5,8 +5,7 @@ describe 'As an unregistered user' do
     describe 'And I click on Guardians of the Galaxy' do
       it 'shows me genre info and rating' do
         director = Director.create!(name: 'Wakowski Sisters')
-        movie = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect in every way")
-  
+        movie = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect in every way", rating: 5)
         movie.genres.create!(name: 'Action')
         movie.genres.create!(name: 'Adventure')
         movie.genres.create!(name: 'Sci-Fi')
@@ -14,9 +13,9 @@ describe 'As an unregistered user' do
         click_on movie.title
 
         expect(page).to have_content(movie.title)
-        expect(page).to have_content(movie.genres.first)
-        expect(page).to have_content(movie.genres.second)
-        expect(page).to have_content(movie.genres.third)
+        expect(page).to have_content(movie.genres.first.name)
+        expect(page).to have_content(movie.genres.second.name)
+        expect(page).to have_content(movie.genres.third.name)
         expect(page).to have_content(movie.rating)
       end
     end
