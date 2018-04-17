@@ -17,6 +17,16 @@ describe 'Unregistered user' do
       expect(page).to have_content(genre_1.name)
       expect(page).to have_content(genre_2.name)
     end
+
+    it 'genres link to show pages' do
+      genre_1 = Genre.create(name: "Genre_1")
+      genre_2 = Genre.create(name: "Genre_2")
+
+      visit genres_path
+
+      click_on "Genre_1"
+      expect(current_path).to eq(genre_path(genre_1))
+    end
   end
 end
 

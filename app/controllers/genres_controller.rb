@@ -2,7 +2,6 @@ class GenresController < ApplicationController
   def new
   end
 
-
   def index
     @genre = Genre.new
     @genres = Genre.all
@@ -17,6 +16,10 @@ class GenresController < ApplicationController
       flash[:success] = "Failed to create a new genre"
       redirect_to genres_path
     end
+  end
+
+  def show
+    
   end
 
   private
