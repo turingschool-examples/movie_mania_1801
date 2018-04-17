@@ -30,7 +30,7 @@ describe 'As a visitor' do
 
         click_on @movie.title
 
-        expect(current_path).to be(movie_path(@movie))
+        expect(current_path).to eq(movie_path(@movie))
         expect(page).to have_content(@movie.title)
       end
 
