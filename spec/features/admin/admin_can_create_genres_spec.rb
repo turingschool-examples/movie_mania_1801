@@ -11,10 +11,11 @@ describe 'As an admin' do
   context 'when I visit the genre index' do
     scenario 'I can see a list of all genres' do
       genre_name = 'A new, better genre'
+      admin = create(:admin)
 
       visit genres_path
       expect(page).to_not have_content(genre_name)
-      
+
       within('form#genres') do
         fill_in 'genre[name]', with: genre_name
       end
