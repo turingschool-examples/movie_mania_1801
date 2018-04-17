@@ -11,12 +11,15 @@ describe "user goes to movies index" do
 
       visit movies_path
 
-      click_on 'Guardians of the Galaxy'
+      header = 'Genres for this movie:'
 
+      click_on movie_1.title
+save_and_open_page
+      expect(current_path).to eq(movie_path(movie_1))
       expect(page).to have_content(movie_1.title)
       expect(page).to have_content(movie_1.description)
       expect(page).to have_content(movie_1.rating)
-      expect(page).to have_content('Genres for this movie:')
+      expect(page).to have_content(header)
       expect(page).to have_content(genre1.name)
       expect(page).to have_content(genre2.name)
       expect(page).to have_content(genre3.name)

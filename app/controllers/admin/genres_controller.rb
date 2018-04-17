@@ -4,7 +4,12 @@ class Admin::GenresController < Admin::BaseController
   end
 
   def create
-    @genre = Genre.create(genre_params)
+    @genre = Genre.new(genre_params)
+    if @genre.save
+      flash[:success] = "SUCCESS: You created new genre: #{@genre.name}"
+    else
+      flash[:error] = 'ERROR: Unable to create new genre.'
+    end
     redirect_to genres_path
   end
 
