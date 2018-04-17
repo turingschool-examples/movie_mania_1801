@@ -49,7 +49,20 @@ describe 'As an admin' do
       end
 
       scenario 'the genre input box has not changed' do
-        skip
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+        # Carriage return as input char allows us to fail the Genre#save method
+        # But maintain sending the character back to the render view
+        char = "\u000D"
+        visit genres_path
+
+        within('form#new_genre') do
+          fill_in 'genre[name]', with: char
+        end
+
+        click_on 'Create Genre'
+
+        result = find('#genre_name').value
+        expect(result).to eq(char)
       end
     end
   end
