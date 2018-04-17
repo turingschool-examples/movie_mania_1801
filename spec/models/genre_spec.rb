@@ -9,8 +9,8 @@ describe Genre, type: :model do
     it { is_expected.to have_many(:movies).through(:movie_genres) }
   end
 
-  describe 'Class Methods' do
-    context '.avg_rating' do
+  describe 'Instance Methods' do
+    context '#avg_rating' do
       it 'should calculate the average rating of movies in this genre' do
         genre = create(:genre)
         movies = create_list(:movie, 5)
