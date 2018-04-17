@@ -9,7 +9,7 @@ describe "admin" do
     visit admin_genres_path
 
     fill_in "Name", with: "SciFi"
-    click_on "Submit"
+    click_on "Create Genre"
 
     expect(page).to have_content("SciFi")
   end
