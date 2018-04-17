@@ -4,7 +4,7 @@ describe "add movie to cart" do
   context "user visits movies index" do
     it "should be able to add movie to cart" do
       director = Director.create!(name: "Someone!")
-      movie = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail", rating: 5)
+      movie = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail")
 
       visit movies_path
 
@@ -16,7 +16,7 @@ describe "add movie to cart" do
 
     it "adds multiple of the same movie to the cart" do
       director = Director.create!(name: "Someone!")
-      movie = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail", rating: 5)
+      movie = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail")
 
       visit movies_path
 
@@ -31,8 +31,8 @@ describe "add movie to cart" do
 
     it "displays total number of items in cart" do
       director = Director.create!(name: "Someone!")
-      movie1 = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail", rating: 5)
-      movie2 = director.movies.create!(title: "Mary Poppins", description: "Tim Robbins in jail", rating: 5)
+      movie1 = director.movies.create!(title: "Shawshank Redemption", description: "Tim Robbins in jail")
+      movie2 = director.movies.create!(title: "Mary Poppins", description: "Tim Robbins in jail")
 
       visit movies_path
 
