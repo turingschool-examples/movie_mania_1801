@@ -7,7 +7,7 @@ describe "admin" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit genre_path
+      visit genres_path
 
       fill_in 'genre[name]', with: 'action'
 
@@ -24,7 +24,7 @@ describe "unregistered user" do
       genre0 = Genre.create!(name: 'romance')
       genre1 = Genre.create!(name: 'comedy')
       genre2 = Genre.create!(name: 'scifi')
-      visit genre_path
+      visit genres_path
 
       expect(page).to_not have_content("Create Genre")
       expect(page).to have_content(genre0.name)
@@ -34,6 +34,45 @@ describe "unregistered user" do
       click_on 'romance'
 
       expect(current_path).to eq(genre_path(genre0))
+    end
+    describe "I click on a genre" do
+      scenario "I see the movies in the genre" do
+        genre = Genre.create!(name: 'romance')
+        director = Director.create!(name: "Someone")
+        movie = director.movies.create!(title: "GoG", description: "Marvel Space", rating: 5)
+        movie1 = director.movies.create!(title: "Ironman", description: "Metal Suit Dude", rating: 3)
+        movie2 = director.movies.create!(title: "Thor", description: "Hammer Dude", rating: 4)
+
+        movie.movie_genres.create(genre_id: genre)
+        movie1.movie_genres.create(genre_id: genre)
+        movie2.movie_genres.create(genre_id: genre)
+
+        visit genres_path
+
+        click_on 'romance'
+
+        expect(page).to have_content(movie.title)
+        expect(page).to have_content(movie1.title)
+        expect(page).to have_content(movie2.title)
+
+      end
+      scenario "I see the average rating" do
+        genre = Genre.create!(name: 'romance')
+        director = Director.create!(name: "Someone")
+        movie = director.movies.create!(title: "GoG", description: "Marvel Space", rating: 5)
+        movie1 = director.movies.create!(title: "Ironman", description: "Metal Suit Dude", rating: 3)
+        movie2 = director.movies.create!(title: "Thor", description: "Hammer Dude", rating: 4)
+
+        movie.movie_genres.create(genre_id: genre)
+        movie1.movie_genres.create(genre_id: genre)
+        movie2.movie_genres.create(genre_id: genre)
+
+        visit genres_path
+
+        click_on 'romance'
+
+        expect(page).to have_content("Average Rating: 4")
+      end
     end
   end
 end
