@@ -1,0 +1,9 @@
+<%= form_for(:genre, url: genres_path, method: :post) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Create Genre' %>
+<% end if current_admin? %>
+
+<% @genres.each do |genre| %>
+  <%= link_to genre.name, genre_path(genre) %>
+<% end %>
