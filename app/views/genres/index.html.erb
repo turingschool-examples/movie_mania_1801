@@ -8,5 +8,5 @@
 <% end %>
 
 <% @genres.each do |genre| %>
-<%= genre.name %>
+<%= link_to genre.name, genre_path(genre) %>
 <% end %>
