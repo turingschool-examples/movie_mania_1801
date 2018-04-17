@@ -10,6 +10,7 @@ describe 'As a visitor' do
       movie_3 = Movie.create!(title: 'Love Actually', description: 'not action!', director_id: director.id)
 
       visit genres_path
+      save_and_open_page
       click_on genre.name
 
       expect(current_path).to eq(genre_path(genre))
@@ -17,7 +18,7 @@ describe 'As a visitor' do
       expect(page).to have_content(movie_1.title)
       expect(page).to have_content(movie_2.title)
       expect(page).to_not have_content(movie_3.title)
-      expect(page).to have_content("Average Movie Rating: #{genre.movies.average_rating}")
+      expect(page).to have_content("Average Movie Rating: #{genre.average_rating}")
     end
   end
 end

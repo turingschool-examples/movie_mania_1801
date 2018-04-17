@@ -45,6 +45,19 @@ RSpec.configure do |config|
   #     RSpec.describe UsersController, :type => :controller do
   #       # ...
   #     end
+
+  DatabaseCleaner.strategy = :truncation
+
+RSpec.configure do |c|
+  c.before(:each) do
+    DatabaseCleaner.clean
+  end
+
+  c.after(:each) do
+    DatabaseCleaner.clean
+  end
+  c.include Capybara::DSL
+end
   #
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
