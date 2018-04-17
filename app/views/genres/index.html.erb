@@ -1,6 +1,5 @@
 <% if current_admin? %>
-  <h1>Create New Genres Here</h1>
-  <% render :partial 'form' %>
+  <h1><%= link_to 'Create New Genres Here', new_admin_genre_path %></h1>
 <% end %>
 
 <h1>All Genres</h1>
