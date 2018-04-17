@@ -16,7 +16,7 @@ describe "As an admin" do
       expect(page).to have_content(genre_1.name)
       expect(page).to have_content(movie_1.title)
       expect(page).to have_content(movie_2.title)
-      expect(page).to have_content((movie_1.rating * movie_2.rating) / 2)
+      expect(page).to have_content("Average Rating for this Genre: #{genre_1.average_movie_rating}")
     end
   end
 end
