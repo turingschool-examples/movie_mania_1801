@@ -43,6 +43,12 @@ describe 'As a visitor' do
           expect(page).to have_content(genre.name)
         end
       end
+
+      scenario 'I see the rating for this movie' do
+        visit movie_path(@movie)
+
+        expect(page).to have_content("Rating: #{@movie.rating}")
+      end
     end
   end
 end
