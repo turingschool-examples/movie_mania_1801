@@ -45,7 +45,9 @@ describe 'As a visitor' do
       end
 
       scenario 'I see the average rating for all movies in this category' do
-        skip
+        visit genre_path(@genre)
+
+        expect(page).to have_content("Average rating: #{@genre.avg_rating}")
       end
     end
   end

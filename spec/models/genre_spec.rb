@@ -17,7 +17,7 @@ describe Genre, type: :model do
 
         movies.each_with_index do |movie, index|
           MovieGenre.create!(movie: movie, genre: genre)
-          movie.rating = index +  1
+          movie.rating = index + 1
           movie.save!
         end
 
