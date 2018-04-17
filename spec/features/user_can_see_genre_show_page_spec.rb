@@ -5,6 +5,7 @@ describe 'As an unregister user,' do
       genre2 = Genre.create!(name: "Adventure")
       visit genres_path
 
+      expect(page).to_not have_field('genre[name]')
       expect(page).to_not have_button('Create Genre')
 
       expect(page).to have_link(genre.name)
