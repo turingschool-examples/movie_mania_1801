@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :directors, shallow: true do
     resources :movies
   end
+
   resources :movies, only: [:index]
   resources :actors
+  resources :genres, only: [:index]
 
   resources :users, only: [:new, :create, :show]
 
