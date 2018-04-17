@@ -7,7 +7,7 @@ describe "admin" do
 
     visit genres_path
 
-    fill_in :name, with: "Horror"
+    fill_in "genre[name]", with: "Horror"
     click_on 'Create Genre'
 
     expect(page).to have_content("Horror")
