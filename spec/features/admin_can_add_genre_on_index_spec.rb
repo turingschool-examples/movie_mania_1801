@@ -19,7 +19,7 @@ end
 
 describe 'As an unregister user,' do
   describe 'When I visit the genre index' do
-    it 'I am unable to fill out a form to create a new genre' do
+    it 'I am unable to fill out a form' do
       genre = Genre.create!(name: "Action")
       genre2 = Genre.create!(name: "Adventure")
       visit genres_path
