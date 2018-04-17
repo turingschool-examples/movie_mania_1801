@@ -1,1 +1,10 @@
 <h1><%= @genre.name %></h1>
+<h3>Average rating: <%= @genre.avg_rating %></h3>
+
+<ul>
+  <% @genre.movies.each do |movie| %>
+    <li>
+      <p><%= link_to movie.title, movie_path(movie) %></p>
+    </li>
+  <% end %>
+</ul>
