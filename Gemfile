@@ -36,6 +36,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
   gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1'

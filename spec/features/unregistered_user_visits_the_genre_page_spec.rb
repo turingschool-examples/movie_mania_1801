@@ -23,7 +23,7 @@ describe "as an unregistered user" do
     movie3 = genre2.movies.create(title: "Grand Budapest Hotel", description: "Good", rating: 1, director_id: director.id)
 
     visit genres_path
-    save_and_open_page
+
     click_on "Action"
     expect(page).to have_content(genre1.title)
     expect(page).to have_content(movie1.title)
