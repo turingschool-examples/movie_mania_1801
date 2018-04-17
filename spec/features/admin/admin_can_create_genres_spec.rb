@@ -8,11 +8,21 @@
 require 'rails_helper'
 
 describe 'As an admin' do
+  before(:each) do
+    DatabaseCleaner.clean
+    @admin = create(:admin)
+  end
+
+  after(:each) do
+    DatabaseCleaner.clean
+  end
   context 'when I visit the genre index' do
-    scenario 'I can see a list of all genres' do
+
+
+    scenario 'I can add a new genre' do
       genre_name = 'A new, better genre'
-      admin = create(:admin)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
       visit genres_path
 
