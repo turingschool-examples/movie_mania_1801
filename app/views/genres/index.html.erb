@@ -1,9 +1,11 @@
 <% @genres.each do |genre| %>
-  <%= genre.name %>
+  <%= link_to genre.name, genre_path(genre) %>
 <% end %>
 
-<%= form_for @genre do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Submit' %>
+<% if current_user && current_user.admin? %>
+  <%= form_for @genre do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit 'Submit' %>
+  <% end %>
 <% end %>
