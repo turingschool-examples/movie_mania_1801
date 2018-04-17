@@ -1,0 +1,9 @@
+<%= form_for(:genre, url: genres_path, method: :post) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Create Genre' %>
+<% end %>
+
+<% @genres.each do |genre| %>
+  <%= genre.name %>
+<% end %>
