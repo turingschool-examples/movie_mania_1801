@@ -27,8 +27,6 @@ describe 'Admin' do
 
       visit genres_path
 
-      genre_name = "Comedy"
-
       expect(page).to have_content("Create a New Genre")
 
       click_on 'Create Genre'
