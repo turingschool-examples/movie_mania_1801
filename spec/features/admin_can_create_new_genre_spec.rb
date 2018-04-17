@@ -13,6 +13,8 @@ describe "As an admin" do
 
         fill_in 'genre[name]', with: 'Action'
 
+        click_on 'Create Genre'
+
         expect(current_path).to eq(admin_genres_path)
         expect(page).to have_content("Admin Genres")
         expect(page).to have_content("Action")
