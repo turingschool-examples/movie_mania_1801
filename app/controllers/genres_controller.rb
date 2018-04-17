@@ -10,10 +10,13 @@ class GenresController < ApplicationController
   end
 
   def create
-    genre = Genre.new(genre_params)
-    if genre.save
+    @genre = Genre.new(genre_params)
+    if @genre.save
+      flash[:success] = "The genre was saved successfully"
       redirect_to genres_path
     else
+      @genres = Genre.all
+      flash[:error] = "The genre was not saved successfully"
       render :index
     end
   end
