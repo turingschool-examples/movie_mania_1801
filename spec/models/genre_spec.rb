@@ -13,11 +13,15 @@ describe Genre, type: :model do
     context '#avg_rating' do
       it 'should calculate the average rating of movies in this genre' do
         genre = create(:genre)
-        movies = create_list(:movie, 5)
+        movies = create_list(:movie, 8)
 
         movies.each_with_index do |movie, index|
-          MovieGenre.create!(movie: movie, genre: genre)
-          movie.rating = index + 1
+          if index < 5
+            movie.genres.push(genre)
+            movie.rating = index + 1
+          else
+            movie.rating = rand(1..5)
+          end
           movie.save!
         end
 
