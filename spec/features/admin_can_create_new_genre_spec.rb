@@ -31,8 +31,6 @@ describe "As an admin" do
         expect(page).to have_content("Admin Genres")
         expect(page).to have_content("Horror")
         expect(page).to have_content("Action")
-
-
       end
     end
   end
