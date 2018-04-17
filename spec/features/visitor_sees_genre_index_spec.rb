@@ -35,11 +35,14 @@ describe "visitor" do
   end
   scenario "can go to genre show page and see all movies with that genre" do
     genre1 = Genre.create!(name: "Action")
+    genre2 = Genre.create!(name: "Thriller")
     director = Director.create!(name: 'Wakowski Sisters')
     movie1 = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect in every way", rating: 5)
     movie2 = Movie.create!(director_id: director.id, title: "Suicide Squad", description: "Practically perfect in every way", rating: 15)
+    movie3 = Movie.create!(director_id: director.id, title: "Suicide Squad", description: "Practically perfect in every way", rating: 25)
     MovieGenre.create!(movie_id: movie1.id, genre_id: genre1.id)
     MovieGenre.create!(movie_id: movie2.id, genre_id: genre1.id)
+    MovieGenre.create!(movie_id: movie3.id, genre_id: genre2.id)
     average = (movie1.rating + movie2.rating) / 2
 
     visit genres_path

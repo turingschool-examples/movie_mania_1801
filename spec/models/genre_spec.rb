@@ -18,7 +18,7 @@ describe Genre, type: :model do
       MovieGenre.create!(movie_id: movie3.id, genre_id: genre2.id)
       MovieGenre.create!(movie_id: movie4.id, genre_id: genre2.id)
       genre1_average = (movie1.rating + movie2.rating) / 2
-      genre2_average = (movie3.rating + movie3.rating) / 2
+      genre2_average = (movie3.rating + movie4.rating) / 2
 
       expect(genre1.average_rating).to eq(genre1_average)
       expect(genre2.average_rating).to eq(genre2_average)
