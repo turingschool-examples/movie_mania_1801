@@ -5,4 +5,6 @@ class Movie < ApplicationRecord
 
   has_many :movie_genres
   has_many :genres, through: :movie_genres
+
+  validates_inclusion_of :rating, in: (1..5).to_a
 end
