@@ -5,7 +5,7 @@ class Admin::GenresController < Admin::BaseController
       flash[:success] = "#{genre.name} was successfully created"
       redirect_to genres_path
     else
-      flash[:error] = "The genre wsa not created"
+      flash[:error] = "The genre was not created"
       redirect_to genres_path
     end
   end

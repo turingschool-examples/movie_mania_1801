@@ -14,6 +14,7 @@ feature 'Admin' do
 
       expect(current_path).to eq(genres_path)
       expect(page).to have_content('Action')
+      expect(page).to have_content('Action was successfully created')
     end
   end
 end
