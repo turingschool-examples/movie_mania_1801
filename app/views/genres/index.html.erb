@@ -1,14 +1,15 @@
 <h1>Genres</h1>
 <ul><% @genres.each do |genre| %>
-<li><%= genre.name %></li>
+<li><%= link_to genre.name, genre_path(genre) %></li>
 <% end %>
 </ul>
 
+<% if current_admin? %>
+  <h3>New Genre</h3>
+  <%= form_for @genre do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-<h3>New Genre</h3>
-<%= form_for @genre do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.submit %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
