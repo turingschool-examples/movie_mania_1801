@@ -4,6 +4,10 @@ class GenresController < ApplicationController
     @genres = Genre.all
   end
 
+  def show
+    @genre = Genre.find(params[:id])
+  end
+
   def create
     genre = Genre.new(genre_params)
     if genre.save
@@ -12,10 +16,8 @@ class GenresController < ApplicationController
     else
       flash.now[:danger] = 'Error. Genre not created'
       render :index
-
     end
   end
-
 
   private
 
