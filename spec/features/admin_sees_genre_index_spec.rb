@@ -14,7 +14,7 @@ describe "as an admin" do
     expect(page).to have_content(genre2.title)
 
     fill_in "genre[title]", with: "Cartoon"
-    click_on "Create Genre"
+    click_on "Submit"
 
     expect(current_path).to eq(genres_path)
     expect(page).to have_content(genre1.title)
