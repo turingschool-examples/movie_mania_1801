@@ -14,7 +14,7 @@ context 'an unregistered user' do
       visit genres_path
 
       click_on genre.name
-      
+
       expect(current_path).to eq(genre_path(genre))
       expect(page).to have_content(movie1.title)
       expect(page).to have_content(movie2.title)
