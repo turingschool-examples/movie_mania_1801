@@ -4,8 +4,8 @@ describe "user sees all movies" do
   context "they visit the movies index" do
     it "displays all movies and their information" do
       director = Director.create!(name: 'Wakowski Sisters')
-      movie_1 = Movie.create!(director_id: director.id, title: "Mary Poppins", description: "Practically perfect in every way")
-      movie_2 = Movie.create!(director_id: director.id, title: "Goonies", description: "Goonies never say die")
+      movie_1 = Movie.create!(director_id: director.id, title: "Mary Poppins", description: "Practically perfect in every way", rating: 5)
+      movie_2 = Movie.create!(director_id: director.id, title: "Goonies", description: "Goonies never say die", rating: 5)
 
       visit "/movies"
 
@@ -21,8 +21,8 @@ describe "user sees all movies" do
     it "displays all movies and their information" do
       director = Director.create!(name: 'Wakowski Sisters')
       director_2 = Director.create!(name: 'Spielberg')
-      movie_1 = Movie.create!(director_id: director.id, title: "Mary Poppins", description: "Practically perfect in every way")
-      movie_2 = Movie.create!(director_id: director_2.id, title: "Goonies", description: "Goonies never say die")
+      movie_1 = Movie.create!(director_id: director.id, title: "Mary Poppins", description: "Practically perfect in every way", rating: 5)
+      movie_2 = Movie.create!(director_id: director_2.id, title: "Goonies", description: "Goonies never say die", rating: 5)
 
       visit "/directors/#{director.id}/movies"
 
