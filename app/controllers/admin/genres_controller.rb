@@ -6,7 +6,7 @@ class Admin::GenresController < Admin::BaseController
       redirect_to genres_path
     else
       flash[:error] = 'A name is required to create a genre! Try again.'
-      render :index
+      redirect_to genres_path
     end
   end
 
