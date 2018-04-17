@@ -1,5 +1,5 @@
 <main>
-  <% if current_user.role == 'admin' %>
+  <% if current_admin? %>
     <%= render partial: "form" %>
   <% end %>
 <h2>Genres</h2>
