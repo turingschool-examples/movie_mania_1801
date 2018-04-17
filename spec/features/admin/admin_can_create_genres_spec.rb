@@ -17,8 +17,6 @@ describe 'As an admin' do
     DatabaseCleaner.clean
   end
   context 'when I visit the genre index' do
-
-
     scenario 'I can add a new genre' do
       genre_name = 'A new, better genre'
 
@@ -37,6 +35,22 @@ describe 'As an admin' do
       expect(current_path).to eq(genres_path)
 
       expect(page).to have_content(genre_name)
+    end
+
+    context 'and I try to create an invalid genre' do
+      scenario 'I see an error message' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+        visit genres_path
+
+        click_on 'Create Genre'
+
+        expect(page).to have_content('There was an error saving that genre.')
+      end
+
+      scenario 'the genre input box has not changed' do
+        skip
+      end
     end
   end
 end
