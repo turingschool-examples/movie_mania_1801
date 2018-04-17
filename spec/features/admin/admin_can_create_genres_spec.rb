@@ -12,11 +12,13 @@ describe 'As an admin' do
     scenario 'I can see a list of all genres' do
       genre_name = 'A new, better genre'
       admin = create(:admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit genres_path
+
       expect(page).to_not have_content(genre_name)
 
-      within('form#genres') do
+      within('form#new_genre') do
         fill_in 'genre[name]', with: genre_name
       end
 
