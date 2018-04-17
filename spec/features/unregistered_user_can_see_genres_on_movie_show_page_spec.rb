@@ -5,9 +5,9 @@ describe "unregistered user sees genres associated with movie" do
     it "displays all genres which are associated with that movie" do
       director = Director.create!(name: "Someone!")
       movie = director.movies.create!(title: "Guardians of the Galaxy", description: "Owls, maybe?", rating: 3)
-      genre1 = movie.genres.create!(name: "Drama")
+      genre1 = movie.genres.create!(name: "Action")
       genre2 = movie.genres.create!(name: "SciFi")
-      genre3 = movie.genres.create!(name: "Comedy")
+      genre3 = movie.genres.create!(name: "Adventure")
 
       visit movies_path
 
