@@ -43,9 +43,9 @@ describe "unregistered user" do
         movie1 = director.movies.create!(title: "Ironman", description: "Metal Suit Dude", rating: 3)
         movie2 = director.movies.create!(title: "Thor", description: "Hammer Dude", rating: 4)
 
-        movie.movie_genres.create(genre_id: genre)
-        movie1.movie_genres.create(genre_id: genre)
-        movie2.movie_genres.create(genre_id: genre)
+        movie.genre_movies.create(genre_id: genre)
+        movie1.genre_movies.create(genre_id: genre)
+        movie2.genre_movies.create(genre_id: genre)
 
         visit genres_path
 
@@ -63,9 +63,9 @@ describe "unregistered user" do
         movie1 = director.movies.create!(title: "Ironman", description: "Metal Suit Dude", rating: 3)
         movie2 = director.movies.create!(title: "Thor", description: "Hammer Dude", rating: 4)
 
-        movie.movie_genres.create(genre_id: genre)
-        movie1.movie_genres.create(genre_id: genre)
-        movie2.movie_genres.create(genre_id: genre)
+        movie.genre_movies.create(genre_id: genre)
+        movie1.genre_movies.create(genre_id: genre)
+        movie2.genre_movies.create(genre_id: genre)
 
         visit genres_path
 

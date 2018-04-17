@@ -1,7 +1,7 @@
 class CreateGenres < ActiveRecord::Migration[5.1]
   def change
     create_table :genres do |t|
-      t.string :username
+      t.string :name
       t.timestamps
     end
   end

@@ -9,9 +9,9 @@ describe "As a user" do
       genre1 = Genre.create(name: 'adventure')
       genre2 = Genre.create(name: 'scifi')
 
-      movie.movie_genres.create(genre_id: genre0)
-      movie.movie_genres.create(genre_id: genre1)
-      movie.movie_genres.create(genre_id: genre2)
+      movie.genre_movies.create(genre_id: genre0)
+      movie.genre_movies.create(genre_id: genre1)
+      movie.genre_movies.create(genre_id: genre2)
 
       visit movies_path
 
