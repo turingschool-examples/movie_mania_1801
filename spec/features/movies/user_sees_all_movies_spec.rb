@@ -20,7 +20,7 @@ describe "user sees all movies" do
     context "to see all the genres for that movie" do
       it "can see multiple genres" do
         director = Director.create!(name: 'Wakowski Sisters')
-        movie_1 = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect")
+        movie_1 = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect", rating: 5)
         genre_1 = movie_1.genres.create!(name: 'Action')
         genre_2 = movie_1.genres.create!(name: 'Adventure')
         genre_3 = movie_1.genres.create!(name: 'Sci-Fi')
@@ -33,6 +33,8 @@ describe "user sees all movies" do
 
         expect(page).to have_content(movie_1.title)
         expect(page).to have_content(movie_1.description)
+        expect(page).to have_content(movie_1.rating)
+        expect(page).to have_content('Genres for this Movie:')
         expect(page).to have_content(genre_1.name)
         expect(page).to have_content(genre_2.name)
         expect(page).to have_content(genre_3.name)
