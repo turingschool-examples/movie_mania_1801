@@ -45,7 +45,7 @@ describe 'As an admin' do
 
         click_on 'Create Genre'
 
-        expect(page).to have_content('There was an error saving that genre.')
+        expect(page).to have_content('There was an error saving that genre. Name can\'t be blank.')
       end
 
       scenario 'the genre input box has not changed' do
