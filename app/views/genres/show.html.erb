@@ -1,1 +1,8 @@
 <%= @genre.name %>
+
+Movies in this Genre:
+<% @genre.movies.each do |movie| %>
+  <%= movie.title %>
+<% end %>
+
+Average Movie Rating: <%= @genre.average_rating %>

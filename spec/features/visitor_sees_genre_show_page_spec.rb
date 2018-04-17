@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 describe 'As a visitor' do
-  content 'when I visit a genre show page' do
+  context 'when I visit a genre show page' do
     it 'I see the genre name, all associated movies, and the avg ratings for these movies' do
       genre = Genre.create!(name: 'Action')
-      movie_1 = genre.movies.create!(title: 'Guardians of the Galaxy', description: 'Chris Pratt rules', rating: 5)
-      movie_2 = genre.movies.create!(title: 'Suicide Squad', description: 'More comic book funz', rating: 1)
-      movie_3 = Movie.create!(title: 'Love Actually', description: 'not action!')
+      director = Director.create!(name: 'Ian Douglas')
+      movie_1 = genre.movies.create!(title: 'Guardians of the Galaxy', description: 'Chris Pratt rules', rating: 5, director_id: director.id)
+      movie_2 = genre.movies.create!(title: 'Suicide Squad', description: 'More comic book funz', rating: 1, director_id: director.id)
+      movie_3 = Movie.create!(title: 'Love Actually', description: 'not action!', director_id: director.id)
 
       visit genres_path
       click_on genre.name
