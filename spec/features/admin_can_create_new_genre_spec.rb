@@ -18,6 +18,21 @@ describe "As an admin" do
         expect(current_path).to eq(admin_genres_path)
         expect(page).to have_content("Admin Genres")
         expect(page).to have_content("Action")
+
+        visit admin_genres_path
+
+        click_on 'Create a Genre'
+
+        fill_in 'genre[name]', with: 'Horror'
+
+        click_on 'Create Genre'
+
+        expect(current_path).to eq(admin_genres_path)
+        expect(page).to have_content("Admin Genres")
+        expect(page).to have_content("Horror")
+        expect(page).to have_content("Action")
+
+
       end
     end
   end
