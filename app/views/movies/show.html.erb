@@ -2,7 +2,7 @@
 <%= @movie.description %>
 <%= @movie.director.name %>
 <%= @movie.rating %>
-Genres for this movie:
+Genres for this Movie:
 <% @movie.genres.each do |genre| %>
   <%= genre.title %>,
 <% end %>
