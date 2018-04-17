@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   post '/cart', to: 'cart#create'
+
+  resources :genre, only: [:index, :create]
 end
