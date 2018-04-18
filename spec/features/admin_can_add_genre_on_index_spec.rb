@@ -10,9 +10,18 @@ describe 'As an admin user,' do
       fill_in 'genre[name]', with: 'Action'
       click_on 'Create Genre'
 
-      genre = Genre.last
+      expect(page).to have_content('Action')
+    end
 
-      expect(page).to have_content(genre.name)
+    it 'I see a flash if I fill in the form wrong' do
+      admin = User.create(username: 'funbucket13', password: 'test', role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      visit genres_path
+
+      fill_in 'genre[name]', with: ''
+      click_on 'Create Genre'
+
+      expect(page).to have_content('Oops, you didn\'t include the genre name')
     end
   end
 end

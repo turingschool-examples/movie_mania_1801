@@ -1,7 +1,7 @@
 class Admin::GenresController < Admin::BaseController
   def create
     genre = Genre.new(genre_params)
-    flash[:notice] = "Oops something went wrong" unless genre.save
+    flash[:notice] = 'Oops, you didn\'t include the genre name' unless genre.save
     redirect_to genres_path
   end
   private
