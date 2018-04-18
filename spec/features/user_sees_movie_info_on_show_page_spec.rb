@@ -14,7 +14,7 @@ describe "user goes to movies index" do
       header = 'Genres for this movie:'
 
       click_on movie_1.title
-save_and_open_page
+
       expect(current_path).to eq(movie_path(movie_1))
       expect(page).to have_content(movie_1.title)
       expect(page).to have_content(movie_1.description)

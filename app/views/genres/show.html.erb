@@ -3,3 +3,6 @@
 <% @genre.movies.each do |movie| %>
   <p><%= movie.title %></p>
 <% end %>
+
+<h3>Average rating for all movies in the genre: <%= @genre.name %></h3>
+<p><%= @genre.movies.average_rating %></p>
