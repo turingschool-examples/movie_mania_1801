@@ -1,11 +1,8 @@
 class Admin::GenresController < Admin::BaseController
   def create
     genre = Genre.new(genre_params)
-    if genre.save
-      redirect_to genres_path
-    else
-      flash[:notice] = "Oops something went wrong"
-    end
+    flash[:notice] = "Oops something went wrong" unless genre.save
+    redirect_to genres_path
   end
   private
 
