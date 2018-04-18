@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   # get '/movies', to: 'movies#index'
 
   resources :movies
-  resources :genres, only: [:index, :new, :create, :show]
+  resources :genres, only: [:index, :new, :show]
+  namespace :admin do
+    resources :genres, only: [:create]
+  end
 end
