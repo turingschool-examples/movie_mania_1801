@@ -18,7 +18,7 @@ describe "user sees all movies" do
 
   describe "a visitor can link to movie show page" do
     context "to see all the genres for that movie" do
-      it "can see multiple genres" do
+      it "and the genres are displayed" do
         director = Director.create!(name: 'Wakowski Sisters')
         movie_1 = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect", rating: 5)
         genre_1 = movie_1.genres.create!(name: 'Action')

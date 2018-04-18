@@ -1,8 +1,23 @@
 require 'rails_helper'
 
-describe "As an admin" do
+describe "As an visitor" do
   context "they visit the genre index" do
-    it "and fill in a form to create a new genre" do
+    it "to link to a genre show page" do
+      genre1 = Genre.create!(name: 'Action')
+      genre2 = Genre.create!(name: 'Horror')
+      genre3 = Genre.create!(name: 'Romance')
+
+      visit genres_path
+
+      click_link genre1.name
+
+      expect(current_path).to eq(genre_path(genre1))
+      expect(page).to have_content(genre1.name)
+    end
+  end
+  
+  context "they visit the genre index" do
+    it "and link to a specific genre to see associated movies and rating" do
       director = Director.create!(name: 'Keller Man')
       genre_1 = Genre.create!(name: 'Action')
       movie_1 = genre_1.movies.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically ridiculous", rating: 4)
