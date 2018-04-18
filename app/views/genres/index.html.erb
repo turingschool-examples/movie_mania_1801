@@ -1,0 +1,13 @@
+<% if current_admin? %>
+  <h1>Create New Genres Here</h1>
+  <%= form_for [:admin, @genre] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<h1>All Genres</h1>
+<% @genres.each do |genre| %>
+  <p><%= link_to genre.name, genre_path(genre) %></p>
+<% end %>
