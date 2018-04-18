@@ -10,7 +10,7 @@ describe "As an admin" do
 
       click_on 'Create Genre'
 
-      expect(page).to have_content('Genre Not Created!')
+      expect(page).to have_content('Genre not created, try again.')
     end
   end
 
@@ -24,7 +24,7 @@ describe "As an admin" do
       click_on 'Create Genre'
 
       expect(current_path).to eq(genres_path)
-      expect(page).to have_content('Action')
+      expect(page).to have_content('Action Genre Added')
     end
   end
 end
