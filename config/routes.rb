@@ -6,13 +6,17 @@ Rails.application.routes.draw do
   resources :directors, shallow: true do
     resources :movies
   end
+
   resources :movies, only: [:index]
   resources :actors
+
+  resources :genres, only: [:index, :show]
 
   resources :users, only: [:new, :create, :show]
 
   namespace :admin do
     resources :categories, only: [:index]
+    resources :genres, only: [:create]
   end
 
   get '/login', to: 'sessions#new'
