@@ -32,13 +32,13 @@ feature 'Visitor' do
 
       visit genres_path
 
-      click_on 'Action'
+      click_on genre_one.name
 
       expect(current_path).to eq(genre_path(genre_one))
 
       visit genres_path
 
-      click_on 'Adventure'
+      click_on genre_two.name
 
       expect(current_path).to eq(genre_path(genre_two))
     end
