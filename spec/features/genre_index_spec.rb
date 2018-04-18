@@ -15,6 +15,19 @@ describe "admin" do
 
       expect(page).to have_content("action")
     end
+    scenario "I can't submit a blank genre" do
+      admin = User.create!(username: "admin", password: "password", role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit genres_path
+
+      fill_in 'genre[name]', with: ''
+
+      click_on 'Create Genre'
+
+      expect(page).to have_content("Problem creating genre!")
+    end
   end
 end
 
