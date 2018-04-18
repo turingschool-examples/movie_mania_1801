@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   resources :actors
 
   resources :genres, only: [:index, :show]
-  post '/genres', to: 'admin/genres#create'
 
   resources :users, only: [:new, :create, :show]
 
   namespace :admin do
     resources :categories, only: [:index]
+    resources :genres, only: [:create]
   end
 
   get '/login', to: 'sessions#new'
