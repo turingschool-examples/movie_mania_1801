@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Genre, type: :model do
-  describe 'validations' do
+  describe 'Validations' do
     it {is_expected.to validate_presence_of(:name)}
     it {is_expected.to have_many(:movies).through(:movie_genres)}
   end
 
-  describe 'Methods' do
+  describe 'Instance Methods' do
     scenario '#average_rating' do
       director = Director.create!(name: "Someone!")
       movie_1 = director.movies.create!(title: 'Guardians of the Galaxy', description: 'Stupid Movie', rating: 1)
