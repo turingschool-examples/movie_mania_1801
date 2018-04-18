@@ -20,7 +20,7 @@ describe "admin" do
 
     click_on 'Create Genre'
 
-    expect(current_path).to eq(genres_path)
     expect(page).to have_content("The genre was not saved successfully")
+    expect(current_path).to eq(genres_path)
   end
 end

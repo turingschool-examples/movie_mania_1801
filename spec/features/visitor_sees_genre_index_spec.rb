@@ -39,7 +39,7 @@ describe "visitor" do
     director = Director.create!(name: 'Wakowski Sisters')
     movie1 = Movie.create!(director_id: director.id, title: "Guardians of the Galaxy", description: "Practically perfect in every way", rating: 5)
     movie2 = Movie.create!(director_id: director.id, title: "Suicide Squad", description: "Practically perfect in every way", rating: 15)
-    movie3 = Movie.create!(director_id: director.id, title: "Suicide Squad", description: "Practically perfect in every way", rating: 25)
+    movie3 = Movie.create!(director_id: director.id, title: "Suicide Squad", description: "Practically perfect in every way", rating: 10000)
     MovieGenre.create!(movie_id: movie1.id, genre_id: genre1.id)
     MovieGenre.create!(movie_id: movie2.id, genre_id: genre1.id)
     MovieGenre.create!(movie_id: movie3.id, genre_id: genre2.id)
