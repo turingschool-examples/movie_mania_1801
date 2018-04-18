@@ -22,10 +22,6 @@ class GenresController < ApplicationController
 
   private
 
-    def current_admin?
-      render '/public/404' unless current_user.role == 'admin'
-    end
-
     def set_genre
       @genre = Genre.find(params[:id])
     end
