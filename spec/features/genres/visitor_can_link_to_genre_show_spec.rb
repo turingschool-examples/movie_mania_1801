@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "As an visitor" do
   context "they visit the genre index" do
-    it "to link to a genre show page" do
+    it "to link to a genre show page and see genre name" do
       genre1 = Genre.create!(name: 'Action')
       genre2 = Genre.create!(name: 'Horror')
       genre3 = Genre.create!(name: 'Romance')
@@ -15,7 +15,7 @@ describe "As an visitor" do
       expect(page).to have_content(genre1.name)
     end
   end
-  
+
   context "they visit the genre index" do
     it "and link to a specific genre to see associated movies and rating" do
       director = Director.create!(name: 'Keller Man')

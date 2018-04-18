@@ -1,5 +1,4 @@
 class Admin::GenresController < Admin::BaseController
-
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
@@ -12,8 +11,7 @@ class Admin::GenresController < Admin::BaseController
 
   private
 
-  def genre_params
-    params.require(:genre).permit(:name)
-  end
-
+    def genre_params
+      params.require(:genre).permit(:name)
+    end
 end
