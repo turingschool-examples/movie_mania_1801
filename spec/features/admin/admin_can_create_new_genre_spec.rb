@@ -27,8 +27,6 @@ describe "As an admin" do
         visit genres_path
 
         click_on 'Create Genre'
-        fill_in 'genre[name]', with: ""
-        click_on 'Create Genre'
 
         expect(current_path).to eq(genres_path)
         expect(page).to have_content('Genre could not be created. Please try again!')
