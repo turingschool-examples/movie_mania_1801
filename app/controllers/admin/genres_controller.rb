@@ -4,11 +4,10 @@ class Admin::GenresController < Admin::BaseController
     @genre = Genre.new(genre_params)
     if @genre.save
       flash[:success] = "You have created a #{@genre.name} genre."
-      redirect_to genres_path
     else
       flash[:error] = "Your genre was not successfully created."
-      redirect_to genres_path
     end
+    redirect_to genres_path
   end
 
   private
