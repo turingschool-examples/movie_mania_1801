@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe Genre do
+  context 'field validations' do
+    it 'is invalid without a name' do
+      genre = Genre.create(name: '')
+
+      expect(genre).to_not be_valid
+    end
+  end
   context 'relationships' do
     it 'has many movie_genres' do
       genre = Genre.create!
