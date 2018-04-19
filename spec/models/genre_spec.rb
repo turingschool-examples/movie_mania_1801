@@ -10,12 +10,12 @@ describe Genre do
   end
   context 'relationships' do
     it 'has many movie_genres' do
-      genre = Genre.create!
+      genre = Genre.create(name: 'a')
 
       expect(genre).to have_many(:movie_genres)
     end
     it 'has many movies through movie_genres' do
-      genre = Genre.create!
+      genre = Genre.create(name: 'a')
 
       expect(genre).to have_many(:movies).through(:movie_genres)
     end
