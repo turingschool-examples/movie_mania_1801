@@ -1,0 +1,11 @@
+<% if current_user && current_user.role == "admin" %>
+  <%= form_for @genre do |t| %>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+    <%= t.submit "submit" %>
+  <% end %>
+<% end %>
+
+<% @genres.each do |genre| %>
+  <%= link_to genre.name, genre_path(genre) %>
+<% end %>
